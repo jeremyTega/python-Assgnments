@@ -1,4 +1,5 @@
 
+
 smallest = float('inf')
 largest = 0
 product = 1
