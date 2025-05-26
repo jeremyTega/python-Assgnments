@@ -14,7 +14,7 @@ class TestBankFunction(unittest.TestCase):
     @patch('random.randint')
     def test_account_number_range(self, mock_randint):
         mock_randint.return_value = 9876543210
-        account = function_bank.open_account("Jane Smith", 500.0)
+        account = function_bank.open_account("Jeremy", 500.0)
         self.assertGreaterEqual(account[1], 1000000000)
         self.assertLessEqual(account[1], 9999999999)
 
@@ -25,27 +25,27 @@ class TestBankFunction(unittest.TestCase):
 
 
     def test_large_balance(self):
-        account = function_bank.open_account("Jane Smith", 1e6)
-        self.assertEqual(account[0], "Jane Smith")
+        account = function_bank.open_account("Jeremy tega", 1e6)
+        self.assertEqual(account[0], "Jeremy tega")
         self.assertEqual(account[2], 1e6)
 
     def test_multiple_account_creations(self):
-        account1 = function_bank.open_account("Alice Johnson")
-        account2 = function_bank.open_account("Bob Brown")
+        account1 = function_bank.open_account("tega jeremy")
+        account2 = function_bank.open_account("sunday bob")
         self.assertNotEqual(account1[1], account2[1])
 
     def test_account_number_format(self):
-        account = function_bank.open_account("Eve Foster")
+        account = function_bank.open_account("james sunday")
         self.assertIsInstance(account[1], int)
         self.assertEqual(len(str(account[1])), 10)
 
     def test_negative_balance(self):
         with self.assertRaises(ValueError):
-            function_bank.open_account("John Doe", -500.0)
+            function_bank.open_account("olamide sega", -500.0)
 
 
     def setUp(self):
-        self.account = function_bank.open_account("John Doe", 1000.0)
+        self.account = function_bank.open_account("john Tega", 1000.0)
 
 
     def test_valid_deposit(self):
