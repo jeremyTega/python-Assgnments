@@ -29,7 +29,7 @@ def encrypt(text):
 
     return ''.join(result)
 
-print(encrypt('Hello  World'))
+print(encrypt('Hello.World'))
 
 
 
