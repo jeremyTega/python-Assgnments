@@ -23,3 +23,38 @@ def mainFunction():
             print("Invalid choice. Please select a valid option.")
 
 print(mainFunction())
+
+
+class BankAccount:
+    def __init__(self, initial_balance):
+        if initial_balance <= 100:
+            raise ValueError("Balance must be greater than N100.")
+        self.balance = initial_balance
+
+    def withdraw(self, amount):
+        if amount % 500 != 0 and amount % 1000 != 0:
+            print("Please enter an amount that is a multiple of 500 or 1000.")
+            return False
+
+        if amount > self.balance:
+            print("Insufficient funds.")
+            return False
+
+        if amount > 20000:
+            print("The maximum amount you can withdraw at once is N20,000.")
+            return False
+
+        fee = 100
+        total_deduction = amount + fee
+        if total_deduction > self.balance:
+            print("Insufficient funds to cover withdrawal and fee.")
+            return False
+
+        self.balance -= total_deduction
+        print(f"Transaction successful. You withdrew N{amount}.")
+        print(f"Withdrawal fee is: N{fee}")
+        print(f"Your new balance is N{self.balance}.")
+        return True
+
+    def get_balance(self):
+        return self.balance
